@@ -1,3 +1,5 @@
-# cab-srhub-group-10
+# CAB SRHUB Group 10
+
 cab-srhub-group-10 created by GitHub Classroom
-This is where we keep all our documents and stuff. -YD
+
+This folder contains all the documents relevant to the SRHub joint project.
