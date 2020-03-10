@@ -2,4 +2,4 @@
 
 cab-srhub-group-10 created by GitHub Classroom
 
-This folder contains all the documents relevant to the SRHub joint project.
+This group consists of Yash Dhayal, Abhijit Vempati, Kevin Williams, Zahir Johnson, and Mac Bivens-Tatum.
