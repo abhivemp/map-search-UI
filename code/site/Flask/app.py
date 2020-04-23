@@ -36,7 +36,7 @@ def Data():
 	
 @app.route('/Data/County')
 def CountyMap():
-	return render_template('map.html')
+	return render_template('themap.html')
 
 @app.route('/Data/County/<county>')
 def CountData(county):

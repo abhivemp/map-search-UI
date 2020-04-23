@@ -6,8 +6,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
 </head>
 <body>
-    <div class="ui container">
-         
+    <div class="ui center aligned container" style="margin-bottom: 30px;">
+        <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Back To Home</a></li>
+            <li><a href="{{ url_for('CountyMap') }}">Back To Map</a></li>
+        </ul>   
         <h1>Content</h1>
         <table class="ui celled table">
             <thead>
@@ -30,7 +34,7 @@
                     <td>{{row[3]}}</td>
                     <td>{{row[4]}}</td>
                     <td>{{row[5]}}</td>
-                    <td><a href="{{row[6]}}">The link</a></td>
+                    <td><a href="{{row[6]}}" target="blank">The link</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
 </head>
 <body>
-    
-    <h1>Hello!</h1>
-    <ul>
-    	<li><a href="{{ url_for('Data') }}">View All Data</a></li>
-    	<li><a href="{{ url_for('CountyMap') }}">View By County Data</a></li>
-    </ul>
-
+    <div class="ui center aligned container" style="margin-bottom: 30px;">
+	    <h1>Hello!</h1>
+	    <img src="{{ url_for('static', filename = 'bigHubLogo.png') }}">
+	    <ul>
+	    	<li><a href="{{ url_for('Data') }}">View All Data</a></li>
+	    	<li><a href="{{ url_for('CountyMap') }}">View By County Data</a></li>
+	    </ul>
+    </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 </html>

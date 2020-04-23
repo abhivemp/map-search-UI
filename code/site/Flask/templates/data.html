@@ -4,10 +4,14 @@
     <meta charset="utf-8">
     <title>Semantic UI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <style type="text/css">
+        body{padding-bottom: 10px;}
+    </style>
 </head>
 <body>
-    <div class="ui container">
-        <a href="{{ url_for('index') }}">Return Home Screen</a>
+    <div class="ui center aligned container" style="margin-bottom: 30px;">
+        <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}">
+        <a href="{{ url_for('index') }}" style=" display: block;" >Return Home Screen</a>
         <h1>The Scema</h1>
         <table class="ui celled table">
             <thead>
@@ -49,7 +53,7 @@
                     <td>{{row[3]}}</td>
                     <td>{{row[4]}}</td>
                     <td>{{row[5]}}</td>
-                    <td><a href="{{row[6]}}">The link</a></td>
+                    <td><a href="{{row[6]}}" target="blank">The link</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -76,7 +80,7 @@
                     <td>{{row[3]}}</td>
                     <td>{{row[4]}}</td>
                     <td>{{row[5]}}</td>
-                    <td><a href="{{row[6]}}">The link</a></td>
+                    <td><a href="{{row[6]}}" target="blank">The link</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -91,6 +95,7 @@
                     <th>Date</th>
                     <th>Location</th>
                     <th>Category</th>
+                    <th>Time</th>
                     <th>Link</th>
                 </tr>
             </thead>
@@ -103,7 +108,8 @@
                     <td>{{row[3]}}</td>
                     <td>{{row[4]}}</td>
                     <td>{{row[5]}}</td>
-                    <td><a href="{{row[6]}}">The link</a></td>
+                    <td>{{row[7]}}</td>
+                    <td><a href="{{row[6]}}" target="blank">The link</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
