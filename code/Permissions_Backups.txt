@@ -1,0 +1,39 @@
+
+# Yash D.
+
+/* ---- PERMISSIONS ---- */
+
+# clearing permissions to the 3 tables from anyone
+REVOKE UPDATE, TRUNCATE, INSERT, CREATE, TRIGGER
+ON CONTENT, ARTICLE, MM 
+FROM PUBLIC;
+
+/* only allowing UPDATE to DBA. Not allowing Content_id to be 
+changed by anyone, since it is a primary key */
+GRANT UPDATE (Author, Title, Posting_date, Location, Category, Data)
+ON CONTENT, ARTICLE, MM 
+TO OSC;
+
+# giving back the remaining permissions only to OSC
+GRANT TRUNCATE, INSERT, CREATE, TRIGGER
+ON CONTENT, ARTICLE, MM 
+TO OSC;
+
+
+/* ---- BACKUP & RESTORE ---- */
+# creating dump file to restore DB up to dump file creation time
+pg_dump Project > ProjectDB_dump.sql
+
+/* for restoring off of a dump:
+1. First create the new DB:
+createdb [new db]
+2. Run the dumpfile:
+psql [new db] < ProjectDB_dump.sql
+*/
+
+# creating dump file for a specific table to restore
+pg_dump -d Project -t [table_name] > table_name_dump.sql
+
+/* restoring a table off of the dump:
+psql -d Project < table_name_dump.sql
+*/
