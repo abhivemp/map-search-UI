@@ -40,7 +40,7 @@ function drawPie( pieName, dataSet, selectString, colors, margin, outerRadius, i
 	var pieCenterX = outerRadius + margin/2;
 	var pieCenterY = outerRadius + margin/2;
   var legendBulletOffset = 0;
-  var legendVerticalOffset = (outerRadius - margin) * .75;
+  var legendVerticalOffset = (outerRadius - margin);
   var legendTextOffset = 20;
   var textVerticalSpace = 30;
 

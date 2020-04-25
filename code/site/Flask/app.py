@@ -43,7 +43,7 @@ def CountyMap():
 def CategoryPie():
 	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
 	cur = con.cursor()
-	cur.execute("""SELECT * FROM pietags""")
+	cur.execute("""SELECT * FROM pietags order by count DESC""")
 	cats = cur.fetchall()
 	cur.close
 	return render_template('thepie.html', cats = cats)
