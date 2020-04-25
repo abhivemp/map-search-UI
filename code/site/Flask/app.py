@@ -6,21 +6,27 @@ app.debug = True
 
 @app.route('/')
 def index():
-	return render_template('home.html')
+
+	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
+	cur = con.cursor()
+	cur.execute("""SELECT * FROM pietags order by count DESC""")
+	cats = cur.fetchall()
+	cur.close
+	return render_template('home.html', cats=cats)
 
 @app.route('/Data')
 def Data():
 	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
 
-	cur = con.cursor()
-	cur.execute("SELECT tables.table_catalog, tables.table_name, tables.table_type FROM  INFORMATION_SCHEMA.tables WHERE table_schema='public' AND table_type = 'BASE TABLE' ORDER BY tables.table_name;")
-	oTables = cur.fetchall()
-	cur.close
+	# cur = con.cursor()
+	# cur.execute("SELECT tables.table_catalog, tables.table_name, tables.table_type FROM  INFORMATION_SCHEMA.tables WHERE table_schema='public' AND table_type = 'BASE TABLE' ORDER BY tables.table_name;")
+	# oTables = cur.fetchall()
+	# cur.close
 
-	cur = con.cursor()
-	cur.execute("SELECT * From content")
-	cont = cur.fetchall()
-	cur.close
+	# cur = con.cursor()
+	# cur.execute("SELECT * From content")
+	# cont = cur.fetchall()
+	# cur.close
 
 	cur = con.cursor()
 	cur.execute("SELECT * From article")
@@ -32,21 +38,17 @@ def Data():
 	mults = cur.fetchall()
 	cur.close
 
-	return render_template('data.html', oTables=oTables, cont=cont, arts=arts, mults=mults)
+	return render_template('data.html', arts=arts, mults=mults)
 	
-@app.route('/Data/County')
-def CountyMap():
-	return render_template('themap.html')
+# @app.route('/Data/County')
+# def CountyMap():
+# 	return render_template('themap.html')
 
 
-@app.route('/Data/Category')
-def CategoryPie():
-	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
-	cur = con.cursor()
-	cur.execute("""SELECT * FROM pietags order by count DESC""")
-	cats = cur.fetchall()
-	cur.close
-	return render_template('thepie.html', cats = cats)
+# @app.route('/Data/Category')
+# def CategoryPie():
+	
+# 	return render_template('thepie.html', cats = cats)
 
 
 @app.route('/Data/Category/<category>')

@@ -1,91 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <title>Semantic UI</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <style type="text/css">
-        body{padding-bottom: 10px;}
-    </style>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SRHub Demo</title>
+
+  <!-- Bootstrap core CSS -->
+  <script type="text/javascript" src="https://mbostock.github.com/d3/d3.js?2.4.5"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename = 'chartstuff.js') }}"></script>
+  <link href="{{ url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info static-top">
+    <div class="container">
+      <a class="navbar-brand" href=""><img src="HubFavicon.jpg" height="40" width="40"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#" > Articles
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+
     <div class="ui center aligned container" style="margin-bottom: 30px;">
-        <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}">
-        <a href="{{ url_for('index') }}" style=" display: block;" >Return Home Screen</a>
-        <h1>The Scema</h1>
-        <table class="ui celled table">
-            <thead>
-                <tr>
-                    <th>DB Name</th>
-                    <th>Table Name</th>
-                    <th>Table Type</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in oTables %}
-                <tr>
-                    <td>{{row[0]}}</td>
-                    <td>{{row[1]}}</td>
-                    <td>{{row[2]}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table> 
-        <h1>Content</h1>
-        <table class="ui celled table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Author</th>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Category</th>
-                    <th>Link</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in cont %}
-                <tr>
-                    <td>{{row[0]}}</td>
-                    <td>{{row[1]}}</td>
-                    <td>{{row[2]}}</td>
-                    <td>{{row[3]}}</td>
-                    <td>{{row[4]}}</td>
-                    <td>{{row[5]}}</td>
-                    <td><a href="{{row[6]}}" target="blank">The link</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table> 
         <h1>Articles</h1>
-        <table class="ui celled table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Author</th>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Category</th>
-                    <th>Link</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in arts %}
-                <tr>
-                    <td>{{row[0]}}</td>
-                    <td>{{row[1]}}</td>
-                    <td>{{row[2]}}</td>
-                    <td>{{row[3]}}</td>
-                    <td>{{row[4]}}</td>
-                    <td>{{row[5]}}</td>
-                    <td><a href="{{row[6]}}" target="blank">The link</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table> 
-        <h1>Multi Media</h1>
+        <div class="row row-cols-1 row-cols-md-3">
+            {% for row in arts %}
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{row[2]}}</h5>
+                        <p class="card-text"> by {{row[1]}} on {{row[3]}}</p>
+                        <p class="card-text"> Category {{row[5]}}</p>
+                        <p class="card-text"> Location {{row[4]}}</p>
+                        <a href="{{row[6]}}" class="btn btn-info" target="blank">Read Article!</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <h1>Videos and Forums</h1>
         <table class="ui celled table">
             <thead>
                 <tr>
@@ -114,10 +87,15 @@
                 {% endfor %}
             </tbody>
         </table> 
-       
-
     </div>
-
+    <footer class="py-5 bg-dark bg-info">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename = 'vendor/jquery/jquery.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>

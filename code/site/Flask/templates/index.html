@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SRHub Demo</title>
+
+  <!-- Bootstrap core CSS -->
+  <script type="text/javascript" src="https://mbostock.github.com/d3/d3.js?2.4.5"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename = 'chartstuff.js') }}"></script>
+  <link href="{{ url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+  <script type="text/javascript">
+      var dataSet1 = [
+        {% for row in cats %}
+        {legendLabel: "{{row[0]}}", magnitude:{{row[1]}}, link: "{{ url_for('CatData', category = row[0] ) }}"},
+        {% endfor %}
+      ];
+  </script>
+
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-info static-top">
+    <div class="container">
+      <a class="navbar-brand" href=""><img src="HubFavicon.jpg" height="40" width="40"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#" > Articles
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <img src="bigHubLogo.png" style="margin-top: 20px;" width="100%">
+    <hr>
+    <div class="row row-cols-2 text-center">
+      <div class="col">
+        <map name="MapNJ">
+        <area shape="poly" coords="245,6,170,93,237,162,332,61" href="{{ url_for('CountData', county = 'Sussex') }}" target="" alt="Sussex"/>
+        <area shape="poly" coords="338,61, 298,104, 356,139, 361,168, 399,196, 393,148, 359,128, 374,87" href="{{ url_for('CountData', county = 'Passaic') }}" target="" alt="Passaic"/>
+        <area shape="poly" coords="377,91,362,126,398,146,404,182,397,208,407,212,427,195,438,203,460,137" href="{{ url_for('CountData', county = 'Bergen') }}" target="" alt="Bergen"/>
+        <area shape="poly" coords="354,170,336,223,397,248,399,229,385,228,395,197" href="{{ url_for('CountData', county = Essex') }}" target="" alt="Essex"/>
+        <area shape="poly" coords="390,226,392,213,409,220,427,202,435,209,407,258,393,261,404,241,402,224" href="{{ url_for('CountData', county = 'Hudson') }}" target="" alt="Hudson"/>
+        <area shape="poly" coords="171,102,127,138,150,184,113,224,112,275,184,214,220,166" href="{{ url_for('CountData', county = 'Warren') }}" target="" alt="Warren"/>
+        <area shape="poly" coords="296,107,246,173,232,167,198,209,235,230,286,219,296,242,293,256,328,226,340,164,353,165,351,141,313,128,310,118,294,124" href="{{ url_for('CountData', county = 'Morris') }}" target="" alt="Morris"/>
+        <area shape="poly" coords="192,213,112,285,146,287,148,340,175,344,180,366,198,365,195,354,213,352,213,339,226,339,216,310,234,287,235,240" href="{{ url_for('CountData', county = 'Hunterdon') }}" target="" alt="Hunterdon"/>
+        <area shape="poly" coords="281,224,241,235,243,282,223,314,238,352,258,348,269,351,272,338,304,314,286,285,321,257,286,257" href="{{ url_for('CountData', county = 'Somerset') }}" target="" alt="Somerset"/>
+        <area shape="poly" coords="333,231,311,252,327,252,318,274,353,271,354,276,375,273,377,259,391,251" href="{{ url_for('CountData', county = 'Union') }}" target="" alt="Union"/>
+        <area shape="poly" coords="295,285,312,315,276,344,276,357,265,367,309,395,362,345,356,312,370,287,373,280,351,282" href="{{ url_for('CountData', county = 'Middlesex') }}" target="" alt="Middlesex"/>
+        <area shape="poly" coords="185,371,203,367,201,358,218,355,217,343,229,342,235,360,262,356,259,375,300,400,265,421,269,437,241,422,237,428" href="{{ url_for('CountData', county = 'Mercer') }}" target="" alt="Mercer"/>
+        <area shape="poly" coords="273,429,284,457,320,426,365,426,370,447,393,449,408,439,412,453,423,450,437,348,374,336,329,391" href="{{ url_for('CountData', county = 'Monmouth') }}" target="" alt="Monmouth"/>
+        <area shape="poly" coords="248,433,154,488,184,530,193,564,211,558,258,600,259,617,302,639,323,638,325,568,273,446" href="{{ url_for('CountData', county = 'Burlington') }}" target="" alt="Burlington"/>
+        <area shape="poly" coords="288,464,330,567,331,636,325,647,333,661,357,657,404,573,419,459,367,453,358,433,322,433" href="{{ url_for('CountData', county = 'Ocean') }}" target="" alt="Ocean"/>
+        <area shape="poly" coords="128,507,131,534,142,543,151,566,166,589,183,595,196,621,229,586,207,567,186,569,178,532,155,510,153,495" href="{{ url_for('CountData', county = 'Camden') }}" target="" alt="Camden"/>
+        <area shape="poly" coords="234,589,170,659,205,693,202,726,265,733,267,729,285,732,320,710,,349,677,252,621,251,602" href="{{ url_for('CountData', county = 'Atlantic') }}" target="" alt="Atlantic"/>
+        <area shape="poly" coords="125,533,94,545,72,547,55,559,79,597,109,605,166,655,190,629,180,606,137,571,137,547" href="{{ url_for('CountData', county = 'Gloucester') }}" target="" alt="Gloucester"/>
+        <area shape="poly" coords="46,569,13,622,27,636,20,676,40,685,46,698,49,674,61,674,97,642,137,674,140,643,107,612,71,602" href="{{ url_for('CountData', county = 'Salem') }}" target="" alt="Salem"/>
+        <area shape="poly" coords="98,649,53,695,62,716,75,717,84,733,98,730,119,757,122,773,139,760,177,773,198,694,146,646,143,684" href="{{ url_for('CountData', county = 'Cumberland') }}" target="" alt="Cumberland"/>
+        <area shape="poly" coords="200,734,187,772,198,793,172,857,199,855,266,753,,279,740" href="{{ url_for('CountData', county = 'Cap May') }}" target="" alt="Cap May"/>
+        </map>
+        <img usemap="#MapNJ" src="theMap.jpg" alt="Map">
+      </div>
+      <div class="col align-self-center">
+        <h3>Select Your County to view Articles Near you!!</h3>
+      </div>
+    </div>
+    <hr>
+    <div class="row row-cols-2 text-center">
+      <div class="col">
+        <h4>Select a category that intrest you!!</h4>
+        <h5>The most popular categories are up on top!</h5>
+      </div>
+      <div class="col">
+        <div id="pie_chart_1">
+          <h3 class="h3_Body">Pie Chart Number 1</h3>
+          <div class="chart"></div>
+          <script type="text/javascript">
+            drawPie("Pie1", dataSet1, "#pie_chart_1 .chart", "colorScale20", 20, 200, 5, 1);
+          </script>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <footer class="py-5 bg-dark bg-info">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename = 'vendor/jquery/jquery.slim.min.js') }}"></script>
+  <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+</body>
+
+</html>
