@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Semantic UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body>
+    <div class="ui center aligned container" style="margin-bottom: 30px;">
+        <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}">
+        <ul>
+            <li><a href="{{ url_for('index') }}">Back To Home</a></li>
+            <li><a href="{{ url_for('CategoryPie') }}">Back To Piechart</a></li>
+        </ul>   
+        <h1>Content</h1>
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Author</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Category</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in dcat %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>{{row[5]}}</td>
+                    <td><a href="{{row[6]}}" target="blank">The link</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+       
+
+    </div>
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kevin</title>
+    <script type="text/javascript" src="https://mbostock.github.com/d3/d3.js?2.4.5"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'chartstuff.js') }}"></script>
+    <script type="text/javascript">
+      var dataSet1 = [
+        {% for row in cats %}
+        {legendLabel: "{{row[0]}}", magnitude:{{row[1]}}, link: "{{ url_for('CatData', category = {{row[0]}} ) }}"},
+        {% endfor %}
+        ];
+
+    </script>
+  </head>
+
+  <body>
+
+    <div id="pie_chart_1">
+      <h3 class="h3_Body">Pie Chart Number 1</h3>
+      <div class="chart"></div>
+    </div>
+    <script type="text/javascript">
+      drawPie("Pie1", dataSet1, "#pie_chart_1 .chart", "colorScale20", 20, 200, 5, 0);
+    </script>
+
+    </body>
+
+</html>

@@ -38,6 +38,27 @@ def Data():
 def CountyMap():
 	return render_template('themap.html')
 
+
+@app.route('/Data/Category')
+def CategoryPie():
+	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
+	cur = con.cursor()
+	cur.execute("""SELECT * FROM pietags""")
+	cats = cur.fetchall()
+	cur.close
+	return render_template('thepie.html', cats = cats)
+
+
+@app.route('/Data/Category/<category>')
+def CatData(category):
+	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
+	cur = con.cursor()
+	cur.execute("""SELECT * FROM content WHERE category = (%s); """, (category,))
+	dcat = cur.fetchall()
+	cur.close
+
+	return render_template('catData.html', dcat=dcat)
+
 @app.route('/Data/County/<county>')
 def CountData(county):
 	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
