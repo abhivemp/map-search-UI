@@ -6,13 +6,12 @@ app.debug = True
 
 @app.route('/')
 def index():
-
 	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
 	cur = con.cursor()
 	cur.execute("""SELECT * FROM pietags order by count DESC""")
 	cats = cur.fetchall()
 	cur.close
-	return render_template('home.html', cats=cats)
+	return render_template('index.html', cats=cats)
 
 @app.route('/Data')
 def Data():
@@ -23,32 +22,17 @@ def Data():
 	# oTables = cur.fetchall()
 	# cur.close
 
-	# cur = con.cursor()
-	# cur.execute("SELECT * From content")
-	# cont = cur.fetchall()
-	# cur.close
-
 	cur = con.cursor()
-	cur.execute("SELECT * From article")
-	arts = cur.fetchall()
+	cur.execute("SELECT * From article order by posting_date DESC")
+	arts = cur.fetchmany(size = 9)
 	cur.close
 
 	cur = con.cursor()
-	cur.execute("SELECT * From mm")
-	mults = cur.fetchall()
+	cur.execute("SELECT * From mm order by posting_date DESC")
+	mults = cur.fetchmany(size = 9)
 	cur.close
 
 	return render_template('data.html', arts=arts, mults=mults)
-	
-# @app.route('/Data/County')
-# def CountyMap():
-# 	return render_template('themap.html')
-
-
-# @app.route('/Data/Category')
-# def CategoryPie():
-	
-# 	return render_template('thepie.html', cats = cats)
 
 
 @app.route('/Data/Category/<category>')
@@ -59,7 +43,7 @@ def CatData(category):
 	dcat = cur.fetchall()
 	cur.close
 
-	return render_template('catData.html', dcat=dcat)
+	return render_template('catData.html', dcat=dcat, cat=category)
 
 @app.route('/Data/County/<county>')
 def CountData(county):
@@ -69,7 +53,7 @@ def CountData(county):
 	cont = cur.fetchall()
 	cur.close
 
-	return render_template('cData.html', cont=cont)
+	return render_template('cData.html', cont=cont, count=county)
 
 if __name__ == '__main__':
 	app.run()

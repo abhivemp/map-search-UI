@@ -1,50 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <title>Semantic UI</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SRHub Demo</title>
+
+  <!-- Bootstrap core CSS -->
+  <script type="text/javascript" src="https://mbostock.github.com/d3/d3.js?2.4.5"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename = 'chartstuff.js') }}"></script>
+  <link href="{{ url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+
 </head>
 <body>
-    <div class="ui center aligned container" style="margin-bottom: 30px;">
-        <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}">
-        <ul>
-            <li><a href="{{ url_for('index') }}">Back To Home</a></li>
-            <li><a href="{{ url_for('CountyMap') }}">Back To Map</a></li>
-        </ul>   
-        <h1>Content</h1>
-        <table class="ui celled table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Author</th>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Category</th>
-                    <th>Link</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in cont %}
-                <tr>
-                    <td>{{row[0]}}</td>
-                    <td>{{row[1]}}</td>
-                    <td>{{row[2]}}</td>
-                    <td>{{row[3]}}</td>
-                    <td>{{row[4]}}</td>
-                    <td>{{row[5]}}</td>
-                    <td><a href="{{row[6]}}" target="blank">The link</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-       
-
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-info static-top">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='HubFavicon.jpg')}}" height="40" width="40"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('Data') }}" > Articles
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
+    <div class="container" style="margin-bottom: 30px; max-width: 1024px;">
+        <h1>Articles and Videos from {{count}}</h1>
+        <div class="row row-cols-md-3">
+            {% for row in cont %}
+            <div class="col mb-4" style="min-width: 30%; max-width: 30%;">
+                <div class="card border-info text-center h-100">
+                    <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{row[2]}}</h5>
+                        <p class="card-text"> by {{row[1]}} | {{row[3]}} | {{row[5]}} | {{row[4]}}</p>
+                        <a href="{{row[6]}}" class="btn btn-info" target="blank">Read Article!</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer class="py-5 bg-dark bg-info">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ url_for('static', filename = 'vendor/jquery/jquery.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 </html>
+

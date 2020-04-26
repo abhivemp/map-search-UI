@@ -21,14 +21,14 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-info static-top">
     <div class="container">
-      <a class="navbar-brand" href=""><img src="HubFavicon.jpg" height="40" width="40"></a>
+      <a class="navbar-brand" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='HubFavicon.jpg')}}" height="40" width="40"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#" > Articles
+            <a class="nav-link" href="{{ url_for('Data') }}" > Articles
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -38,20 +38,18 @@
         </ul>
       </div>
     </div>
-    </nav>
+  </nav>
 
-    <div class="ui center aligned container" style="margin-bottom: 30px;">
+    <div class="container" style="margin-bottom: 30px; max-width: 1024px;">
         <h1>Articles</h1>
-        <div class="row row-cols-1 row-cols-md-3">
+        <div class="row row-cols-md-3">
             {% for row in arts %}
-            <div class="col mb-4">
-                <div class="card">
+            <div class="col mb-4" style="min-width: 30%;">
+                <div class="card border-info text-center h-100">
                     <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{row[2]}}</h5>
-                        <p class="card-text"> by {{row[1]}} on {{row[3]}}</p>
-                        <p class="card-text"> Category {{row[5]}}</p>
-                        <p class="card-text"> Location {{row[4]}}</p>
+                        <p class="card-text"> by {{row[1]}} | {{row[3]}} | {{row[5]}} | {{row[4]}}</p>
                         <a href="{{row[6]}}" class="btn btn-info" target="blank">Read Article!</a>
                     </div>
                 </div>
@@ -59,34 +57,21 @@
             {% endfor %}
         </div>
         <h1>Videos and Forums</h1>
-        <table class="ui celled table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Author</th>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Category</th>
-                    <th>Time</th>
-                    <th>Link</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in mults %}
-                <tr>
-                    <td>{{row[0]}}</td>
-                    <td>{{row[1]}}</td>
-                    <td>{{row[2]}}</td>
-                    <td>{{row[3]}}</td>
-                    <td>{{row[4]}}</td>
-                    <td>{{row[5]}}</td>
-                    <td>{{row[7]}}</td>
-                    <td><a href="{{row[6]}}" target="blank">The link</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table> 
+        <div class="row row-cols-md-3">
+            {% for row in mults %}
+            <div class="col mb-4" style="min-width: 30%;">
+                <div class="card border-info text-center h-100">
+                    <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{row[2]}}</h5>
+                        <p class="card-text"> by {{row[1]}} | {{row[3]}} | {{row[5]}} | {{row[4]}} | {{row[7]}}</p>
+                        <a href="{{row[6]}}" class="btn btn-info" target="blank">Watch Video!</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
     </div>
     <footer class="py-5 bg-dark bg-info">
         <div class="container">

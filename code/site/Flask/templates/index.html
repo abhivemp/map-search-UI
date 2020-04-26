@@ -31,14 +31,14 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-info static-top">
     <div class="container">
-      <a class="navbar-brand" href=""><img src="HubFavicon.jpg" height="40" width="40"></a>
+      <a class="navbar-brand" href=""><img src="{{ url_for('static', filename='HubFavicon.jpg')}}" height="40" width="40"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#" > Articles
+            <a class="nav-link" href="{{ url_for('Data') }}" > Articles
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -52,7 +52,7 @@
 
   <!-- Page Content -->
   <div class="container">
-    <img src="bigHubLogo.png" style="margin-top: 20px;" width="100%">
+    <img src="{{ url_for('static', filename='bigHubLogo.png')}}" style="margin-top: 20px;" width="100%">
     <hr>
     <div class="row row-cols-2 text-center">
       <div class="col">
@@ -60,7 +60,7 @@
         <area shape="poly" coords="245,6,170,93,237,162,332,61" href="{{ url_for('CountData', county = 'Sussex') }}" target="" alt="Sussex"/>
         <area shape="poly" coords="338,61, 298,104, 356,139, 361,168, 399,196, 393,148, 359,128, 374,87" href="{{ url_for('CountData', county = 'Passaic') }}" target="" alt="Passaic"/>
         <area shape="poly" coords="377,91,362,126,398,146,404,182,397,208,407,212,427,195,438,203,460,137" href="{{ url_for('CountData', county = 'Bergen') }}" target="" alt="Bergen"/>
-        <area shape="poly" coords="354,170,336,223,397,248,399,229,385,228,395,197" href="{{ url_for('CountData', county = Essex') }}" target="" alt="Essex"/>
+        <area shape="poly" coords="354,170,336,223,397,248,399,229,385,228,395,197" href="{{ url_for('CountData', county = 'Essex') }}" target="" alt="Essex"/>
         <area shape="poly" coords="390,226,392,213,409,220,427,202,435,209,407,258,393,261,404,241,402,224" href="{{ url_for('CountData', county = 'Hudson') }}" target="" alt="Hudson"/>
         <area shape="poly" coords="171,102,127,138,150,184,113,224,112,275,184,214,220,166" href="{{ url_for('CountData', county = 'Warren') }}" target="" alt="Warren"/>
         <area shape="poly" coords="296,107,246,173,232,167,198,209,235,230,286,219,296,242,293,256,328,226,340,164,353,165,351,141,313,128,310,118,294,124" href="{{ url_for('CountData', county = 'Morris') }}" target="" alt="Morris"/>
@@ -79,7 +79,7 @@
         <area shape="poly" coords="98,649,53,695,62,716,75,717,84,733,98,730,119,757,122,773,139,760,177,773,198,694,146,646,143,684" href="{{ url_for('CountData', county = 'Cumberland') }}" target="" alt="Cumberland"/>
         <area shape="poly" coords="200,734,187,772,198,793,172,857,199,855,266,753,,279,740" href="{{ url_for('CountData', county = 'Cap May') }}" target="" alt="Cap May"/>
         </map>
-        <img usemap="#MapNJ" src="theMap.jpg" alt="Map">
+        <img usemap="#MapNJ" src="{{ url_for('static', filename='theMap.jpg')}}" alt="Map">
       </div>
       <div class="col align-self-center">
         <h3>Select Your County to view Articles Near you!!</h3>
