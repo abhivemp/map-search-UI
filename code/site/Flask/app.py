@@ -1,9 +1,15 @@
+# Flask HQ
+
 from flask import Flask, render_template
 import psycopg2
 
 app = Flask(__name__)
 app.debug = True
 
+# psql queries for the index home page
+# Selects data from the pietags view and orders the article occurences 
+# from greatest to least
+# passes the category query to index.html
 @app.route('/')
 def index():
 	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
@@ -13,14 +19,13 @@ def index():
 	cur.close
 	return render_template('index.html', cats=cats)
 
+# queries for data and retrieval
+# selects from article table and shows order from recently uploaded
+# passes both articles and multimedia content to display most 
+# recent content
 @app.route('/Data')
 def Data():
 	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
-
-	# cur = con.cursor()
-	# cur.execute("SELECT tables.table_catalog, tables.table_name, tables.table_type FROM  INFORMATION_SCHEMA.tables WHERE table_schema='public' AND table_type = 'BASE TABLE' ORDER BY tables.table_name;")
-	# oTables = cur.fetchall()
-	# cur.close
 
 	cur = con.cursor()
 	cur.execute("SELECT * From article order by posting_date DESC")
@@ -34,7 +39,9 @@ def Data():
 
 	return render_template('data.html', arts=arts, mults=mults)
 
-
+# category retrieval
+# selects article/mulitmedia based on category selected 
+# loads the data/content for the category selected on that pie chart 
 @app.route('/Data/Category/<category>')
 def CatData(category):
 	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
@@ -45,6 +52,8 @@ def CatData(category):
 
 	return render_template('catData.html', dcat=dcat, cat=category)
 
+#retrieve by county
+# selects article/multimedia based on county selected 
 @app.route('/Data/County/<county>')
 def CountData(county):
 	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
