@@ -4,7 +4,7 @@
 
 -- For restoring the DB off of a dump:
 -- 1. First create the new DB:
-createdb ProjectBak
+-- createdb ProjectBak
 
 -- 2. Run the dumpfile:
 psql ProjectBak < ProjectDB_dump.sql

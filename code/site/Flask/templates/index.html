@@ -15,6 +15,7 @@
   <script type="text/javascript" src="{{ url_for('static', filename = 'chartstuff.js') }}"></script>
   <link href="{{ url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
+  <!-- uses the category query to create a dataset for the pie chart -->
   <script type="text/javascript">
       var dataSet1 = [
         {% for row in cats %}
@@ -50,7 +51,8 @@
     </div>
   </nav>
 
-  <!-- Page Content -->
+  <!-- Uses the NJmap image with polygon hyperlink overlays that links to pages
+  containing content of their respective county -->
   <div class="container">
     <img src="{{ url_for('static', filename='bigHubLogo.png')}}" style="margin-top: 20px;" width="100%">
     <hr>
@@ -86,6 +88,8 @@
       </div>
     </div>
     <hr>
+    <!-- Creates a piechart using a java script package and data from category 
+    query -->
     <div class="row row-cols-2 text-center">
       <div class="col">
         <h4>Select a category that intrest you!!</h4>
