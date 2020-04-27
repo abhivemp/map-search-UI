@@ -2,9 +2,6 @@
 -- Setting Up DB
 -- Code by Yash Dhayal
 
--- Creating DB
-CREATE DATABASE Project;
-
 -- Tables
 -- Creating Content table
 CREATE TABLE CONTENT (
