@@ -42,25 +42,36 @@
 
     <!-- Displays all content from the county selected  -->
     <div class="container" style="margin-bottom: 30px; max-width: 1024px;">
-        <h1>Articles and Videos from {{count}}</h1>
+        <h1 style="margin-top:20px;">Articles and Videos from {{count}}</h1>
         <div class="row row-cols-md-3">
             {% for row in cont %}
             <div class="col mb-4" style="min-width: 30%; max-width: 30%;">
-                <div class="card border-info text-center h-100">
-                    <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{row[2]}}</h5>
-                        <p class="card-text"> by {{row[1]}} | {{row[3]}} | {{row[5]}} | {{row[4]}}</p>
-                        <a href="{{row[6]}}" class="btn btn-outline-info" target="blank">Read Article!</a>
+                {% if row[7] == null %}
+                    <div class="card border-danger text-center h-100">
+                        <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{row[2]}}</h5>
+                            <p class="card-text text-muted"> by {{row[1]}} | {{row[3]}} | {{row[5]}} | {{row[4]}}</p>
+                            <a href="{{row[6]}}" class="btn btn-outline-danger" target="blank">Read Article</a>
+                        </div>
                     </div>
-                </div>
+                {% else %}
+                    <div class="card border-info text-center h-100">
+                        <img src="{{ url_for('static', filename = 'HubFaviconB.png') }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{row[2]}}</h5>
+                            <p class="card-text text-muted"> by {{row[1]}} | {{row[3]}} | {{row[5]}} | {{row[4]}} | {{row[7]}}</p>
+                            <a href="{{row[6]}}" class="btn btn-outline-info" target="blank">Watch Video</a>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
             {% endfor %}
         </div>
     </div>
     <footer class="py-5 bg-dark bg-info">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+            <p class="m-0 text-center text-white">Prototype Developed by - Kevin Williams | Abhi Vempati | Yash Dhayal | Zahir Johnson</p>
         </div>
     </footer>
     <!-- Bootstrap core JavaScript -->

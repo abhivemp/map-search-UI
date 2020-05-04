@@ -39,3 +39,9 @@ CREATE VIEW PieTags AS
 SELECT category, COUNT(category)
 FROM CONTENT
 GROUP BY category;
+
+-- MapCats view contains counties and the count of each county
+CREATE VIEW MapCats AS
+SELECT location, COUNT(location)
+FROM CONTENT
+GROUP BY location;

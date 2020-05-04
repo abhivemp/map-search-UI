@@ -33,7 +33,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://srhub.org/about3/">About</a>
+            <a class="nav-link" href="#">About</a>
           </li>
         </ul>
       </div>
@@ -52,7 +52,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{row[2]}}</h5>
                         <p class="card-text"> by {{row[1]}} | {{row[3]}} | {{row[5]}} | {{row[4]}}</p>
-                        <a href="{{row[6]}}" class="btn btn-outline-danger" target="blank">Read Article!</a>
+                        <a href="{{row[6]}}" class="btn btn-outline-danger" target="blank">Read Article</a>
                     </div>
                 </div>
             </div>
@@ -63,15 +63,14 @@
         <div class="row row-cols-md-3">
             {% for row in mults %}
             <div class="col mb-4" style="min-width: 30%;">
-                <a href="{{row[6]}}" target="blank" style="text-decoration: none; color: black;">
-                  <div class="card border-info text-center h-100">
-                    <img src="{{ url_for('static', filename = 'HubFavicon.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{{row[2]}}</h5>
-                      <p class="card-text"> by {{row[1]}} | {{row[3]}} | {{row[5]}} | {{row[4]}} | {{row[7]}}</p>
-                    </div>
-                  </div>
-                </a>
+              <div class="card border-info text-center h-100">
+                <img src="{{ url_for('static', filename = 'HubFaviconB.png') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{row[2]}}</h5>
+                  <p class="card-text"> by {{row[1]}} | {{row[3]}} | {{row[5]}} | {{row[4]}} | {{row[7]}}</p>
+                  <a href="{{row[6]}}" target="blank" class="btn btn-outline-info">Watch Video</a>
+                </div>
+              </div>
             </div>
             {% endfor %}
         </div>
@@ -79,7 +78,7 @@
     </div>
     <footer class="py-5 bg-dark bg-info">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+            <p class="m-0 text-center text-white">Prototype Developed by - Kevin Williams | Abhi Vempati | Yash Dhayal | Zahir Johnson</p>
         </div>
     </footer>
     <!-- Bootstrap core JavaScript -->

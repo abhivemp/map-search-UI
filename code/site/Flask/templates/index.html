@@ -56,7 +56,7 @@
   <div class="container">
     <img src="{{ url_for('static', filename='bigHubLogo.png')}}" style="margin-top: 20px;" width="100%">
     <hr>
-    <div class="row row-cols-2 text-center">
+    <div class="row row-cols-2 ">
       <div class="col">
         <map name="MapNJ">
         <area shape="poly" coords="245,6,170,93,237,162,332,61" href="{{ url_for('CountData', county = 'Sussex') }}" target="" alt="Sussex"/>
@@ -75,7 +75,7 @@
         <area shape="poly" coords="248,433,154,488,184,530,193,564,211,558,258,600,259,617,302,639,323,638,325,568,273,446" href="{{ url_for('CountData', county = 'Burlington') }}" target="" alt="Burlington"/>
         <area shape="poly" coords="288,464,330,567,331,636,325,647,333,661,357,657,404,573,419,459,367,453,358,433,322,433" href="{{ url_for('CountData', county = 'Ocean') }}" target="" alt="Ocean"/>
         <area shape="poly" coords="128,507,131,534,142,543,151,566,166,589,183,595,196,621,229,586,207,567,186,569,178,532,155,510,153,495" href="{{ url_for('CountData', county = 'Camden') }}" target="" alt="Camden"/>
-        <area shape="poly" coords="234,589,170,659,205,693,202,726,265,733,267,729,285,732,320,710,,349,677,252,621,251,602" href="{{ url_for('CountData', county = 'Atlantic') }}" target="" alt="Atlantic"/>
+        <area shape="poly" coords="234,589,170,659,205,693,202,726,265,733,267,729,285,732,320,710,349,677,252,621,251,602" href="{{ url_for('CountData', county = 'Atlantic') }}" target="" alt="Atlantic"/>
         <area shape="poly" coords="125,533,94,545,72,547,55,559,79,597,109,605,166,655,190,629,180,606,137,571,137,547" href="{{ url_for('CountData', county = 'Gloucester') }}" target="" alt="Gloucester"/>
         <area shape="poly" coords="46,569,13,622,27,636,20,676,40,685,46,698,49,674,61,674,97,642,137,674,140,643,107,612,71,602" href="{{ url_for('CountData', county = 'Salem') }}" target="" alt="Salem"/>
         <area shape="poly" coords="98,649,53,695,62,716,75,717,84,733,98,730,119,757,122,773,139,760,177,773,198,694,146,646,143,684" href="{{ url_for('CountData', county = 'Cumberland') }}" target="" alt="Cumberland"/>
@@ -84,7 +84,16 @@
         <img usemap="#MapNJ" src="{{ url_for('static', filename='theMap.jpg')}}" alt="Map">
       </div>
       <div class="col align-self-center">
-        <h3>Select Your County to view Articles Near you!!</h3>
+        <h3>Select The County To View Its Articles</h3>
+        <h5 class="text-muted" style="margin-top: 10px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspCounty Ranking by Article Quantity</h5>
+        <ul style="list-style-type: none;">
+          {% for row in counts %}
+            <li style="font-size: 19px;">
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{row[0]}}: {{row[1]}}
+              
+            </li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
     <hr>
@@ -92,12 +101,11 @@
     query -->
     <div class="row row-cols-2 text-center">
       <div class="col">
-        <h4>Select a category that intrest you!!</h4>
-        <h5>The most popular categories are up on top!</h5>
+        <h4>Select The Category To View Its Articles</h4>
+        <h5>The most popular categories are up on top</h5>
       </div>
       <div class="col">
         <div id="pie_chart_1">
-          <h3 class="h3_Body">Pie Chart Number 1</h3>
           <div class="chart"></div>
           <script type="text/javascript">
             drawPie("Pie1", dataSet1, "#pie_chart_1 .chart", "colorScale20", 20, 200, 5, 1);
@@ -109,7 +117,7 @@
   </div>
   <footer class="py-5 bg-dark bg-info">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      <p class="m-0 text-center text-white">Prototype Developed by - Kevin Williams | Abhi Vempati | Yash Dhayal | Zahir Johnson</p>
     </div>
     <!-- /.container -->
   </footer>

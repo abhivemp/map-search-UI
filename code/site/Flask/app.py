@@ -7,9 +7,9 @@ app = Flask(__name__)
 app.debug = True
 
 # psql queries for the index home page
-# Selects data from the pietags view and orders the article occurences 
-# from greatest to least
-# passes the category query to index.html
+# Selects data from the pietags view to the MapCats view and 
+# orders the article occurences from greatest to least.
+# passes both queries to index.html
 @app.route('/')
 def index():
 	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
@@ -17,7 +17,13 @@ def index():
 	cur.execute("""SELECT * FROM pietags order by count DESC""")
 	cats = cur.fetchall()
 	cur.close
-	return render_template('index.html', cats=cats)
+
+	cur = con.cursor()
+	cur.execute("""SELECT * FROM MapCats order by count DESC""")
+	counts = cur.fetchall()
+	cur.close
+
+	return render_template('index.html', cats=cats, counts=counts)
 
 # queries for data and retrieval
 # selects from article table and shows order from recently uploaded
@@ -46,9 +52,13 @@ def Data():
 def CatData(category):
 	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
 	cur = con.cursor()
-	cur.execute("""SELECT * FROM content WHERE category = (%s); """, (category,))
+	cur.execute("""SELECT * FROM article WHERE category = (%s); """, (category,))
 	dcat = cur.fetchall()
+	cur.execute("""SELECT * FROM mm WHERE category = (%s); """, (category,))
+	dcat += cur.fetchall()
 	cur.close
+
+	dcat.sort(key=lambda data:data[3], reverse = True)
 
 	return render_template('catData.html', dcat=dcat, cat=category)
 
@@ -58,9 +68,13 @@ def CatData(category):
 def CountData(county):
 	con = psycopg2.connect("dbname='Project' user='osc' password='osc'")
 	cur = con.cursor()
-	cur.execute("""SELECT * FROM content WHERE location = (%s); """, (county,))
+	cur.execute("""SELECT * FROM article WHERE location = (%s); """, (county,))
 	cont = cur.fetchall()
+	cur.execute("""SELECT * FROM mm WHERE location = (%s); """, (county,))
+	cont += cur.fetchall()
 	cur.close
+
+	cont.sort(key=lambda data:data[3], reverse = True)
 
 	return render_template('cData.html', cont=cont, count=county)
 
