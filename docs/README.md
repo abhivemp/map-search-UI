@@ -10,7 +10,6 @@ The module is a prototype to demonstrate an upgraded landing page of [NJSR Hub] 
 <img src="https://github.com/CSC-315/cab-srhub-group-10/blob/master/docs/images/articlechoose.gif" alt="drawing" width="600"/>
 
 
-
 ### See content curated to location
 <img src="https://github.com/CSC-315/cab-srhub-group-10/blob/master/docs/images/mapchoose.gif" alt="drawing" width="600"/>
 
@@ -44,7 +43,14 @@ Run the Flask script
 ```
 $ python app.py
 ```
-Open Google Chrome and type in the address you see here (localhost)
+Open Google Chrome and access the prototype via localhost. After running the flask app, you can see your locahost address
+<img src="https://github.com/CSC-315/cab-srhub-group-10/blob/master/docs/images/localhost%20example.PNG" alt="drawing" width="500"/>
 
 
-Group 10 Members: Yash Dhayal, Abhijit Vempati, Kevin Williams, Zahir Johnson, and Mac Bivens-Tatum.
+
+Developed by:
+
+(Kevin Williams)[https://www.linkedin.com/in/willik39/]
+(Yash Dhayal)[https://github.com/dhayalytcnj]
+(Abhi Vempati)[https://github.com/abhivemp] 
+(Zahir Johnson)[https://github.com/ZahirJohnson00]
