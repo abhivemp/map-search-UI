@@ -13,7 +13,32 @@ insert gif to select all articles
 insert gif to select pie chart
 
 
+## Installation and Usage
 
+If you don't have `pipenv` in the pip
+```
+$ pip install pipenv
+```
+Then
+```
+$ cd code/site/
+```
+
+Enter the virtual environment
+```
+$ pipenv shell
+```
+
+Access
+```
+$ cd Flask
+```
+
+Run the Flask script
+```
+$ python app.py
+```
+Open Google Chrome and type in the address you see here (localhost)
 
 
 Group 10 Members: Yash Dhayal, Abhijit Vempati, Kevin Williams, Zahir Johnson, and Mac Bivens-Tatum.
