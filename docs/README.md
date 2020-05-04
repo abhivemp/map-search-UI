@@ -9,13 +9,18 @@ The module is a prototype to demonstrate an upgraded landing page of [NJSR Hub] 
 ### See all Articles
 <img src="https://github.com/CSC-315/cab-srhub-group-10/blob/master/docs/images/articlechoose.gif" alt="drawing" width="600"/>
 
+<br>
 
 ### See content curated to location
 <img src="https://github.com/CSC-315/cab-srhub-group-10/blob/master/docs/images/mapchoose.gif" alt="drawing" width="600"/>
 
+<br>
+
 
 ### You can even see content based on their tags
 <img src="https://github.com/CSC-315/cab-srhub-group-10/blob/master/docs/images/piechart.gif" alt="drawing" width="600"/>
+
+<br>
 
 
 ## Installation and Usage
