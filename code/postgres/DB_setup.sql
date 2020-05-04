@@ -25,12 +25,14 @@ CREATE TABLE ARTICLE( 	) INHERITS (CONTENT);
 
 -- Filling tables
 -- Transferring data from a CSV file to Article Table
+-- THIS PATH MUST BE CHANGED TO REFLECT YOUR OWN DIRECTORY
 COPY ARTICLE(Content_id, Author, Title, Posting_date, Location, Category, Data) 
-FROM '/home/osc/Desktop/Project/article.csv' DELIMITER ',' CSV HEADER;
+FROM 'cab-srhub-group-10/code/postgres/data/article.csv' DELIMITER ',' CSV HEADER;
 
 -- Transferring data from a CSV file to MM Table
+-- THIS PATH MUST BE CHANGED TO REFLECT YOUR OWN DIRECTORY
 COPY MM(Content_id, Author, Title, Posting_date, Location, Category, Data, playtime) 
-FROM '/home/osc/Desktop/Project/multimedia.csv' DELIMITER ',' CSV HEADER;
+FROM 'cab-srhub-group-10/code/postgres/data/multimedia.csv' DELIMITER ',' CSV HEADER;
 
 
 -- Views
