@@ -39,6 +39,10 @@ Enter the virtual environment
 $ pipenv shell
 ```
 
+```
+$ pipenv install
+```
+
 Access
 ```
 $ cd Flask
