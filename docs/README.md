@@ -30,10 +30,10 @@ Setup Postgres Database
 Preferably do this outside the repository. 
 
 ```
-$ createdb Project
+$ createdb <dbname>
 $ sudo -u postgresql
-$ alter role <createusername> superuser
-$ psql Project
+$ alter role <username> superuser
+$ psql <dbname>
 $ \i path/to/repo/cab-srhub-group-10/code/postgres/DB_setup.sql
 ```
 If you don't have `pipenv` in the pip
