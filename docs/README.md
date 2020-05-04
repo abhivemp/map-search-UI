@@ -50,7 +50,7 @@ Open Google Chrome and access the prototype via localhost. After running the fla
 
 Developed by:
 
-(Kevin Williams)[https://www.linkedin.com/in/willik39/]
-(Yash Dhayal)[https://github.com/dhayalytcnj]
-(Abhi Vempati)[https://github.com/abhivemp] 
-(Zahir Johnson)[https://github.com/ZahirJohnson00]
+[Kevin Williams](https://www.linkedin.com/in/willik39/)
+[Yash Dhayal](https://github.com/dhayalytcnj)
+[Abhi Vempati](https://github.com/abhivemp) 
+[Zahir Johnson](https://github.com/ZahirJohnson00)
