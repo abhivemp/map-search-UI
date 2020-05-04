@@ -6,11 +6,17 @@ The module is a prototype to demonstrate an upgraded landing page of [NJSR Hub] 
 
 ## How it works
 
-insert gif to select county and show the articles
+### See all Articles
+<img src="https://github.com/CSC-315/cab-srhub-group-10/blob/master/docs/images/articlechoose.gif" alt="drawing" width="600"/>
 
-insert gif to select all articles
 
-insert gif to select pie chart
+
+### See content curated to location
+<img src="https://github.com/CSC-315/cab-srhub-group-10/blob/master/docs/images/mapchoose.gif" alt="drawing" width="600"/>
+
+
+### You can even see content based on their tags
+<img src="https://github.com/CSC-315/cab-srhub-group-10/blob/master/docs/images/piechart.gif" alt="drawing" width="600"/>
 
 
 ## Installation and Usage
