@@ -6,10 +6,12 @@ import psycopg2
 app = Flask(__name__)
 app.debug = True
 
-
+# THESE VARIABLES CONTROL THE LOGIN TO THE DB, CHANGE IF NECESSARY
 uname = 'Project'
 use = 'osc'
 pawrd = 'osc'
+
+
 # psql queries for the index home page
 # Selects data from the pietags view to the MapCats view and 
 # orders the article occurences from greatest to least.
