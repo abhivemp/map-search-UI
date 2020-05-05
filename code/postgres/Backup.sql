@@ -2,7 +2,11 @@
 
 -- Code by Yash Dhayal
 
+-- Change database names and file names as necessary.
+-- Below, the database is named Project.
+
 -- Creating dump file to restore DB up to dump file creation time
+-- Change dump file name as desired
 pg_dump Project > ProjectDB_dump.sql
 
 
