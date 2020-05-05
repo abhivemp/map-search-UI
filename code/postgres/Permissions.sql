@@ -9,11 +9,11 @@ REVOKE UPDATE, TRUNCATE, INSERT, CREATE, TRIGGER
 ON CONTENT, ARTICLE, MM 
 FROM PUBLIC;
 
-/* only allowing UPDATE to OSC (admin). Not allowing Content_id to be 
+/* only allowing UPDATE to OSC (or whatever the admin username is). Not allowing Content_id to be 
 changed by anyone, since it is a primary key */
 GRANT UPDATE (Author, Title, Posting_date, Location, Category, Data)
 ON CONTENT, ARTICLE, MM 
-TO OSC;
+TO OSC; -- Change OSC to admin name
 
 -- giving back the remaining permissions only to OSC
 GRANT TRUNCATE, INSERT, CREATE, TRIGGER
