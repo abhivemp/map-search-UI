@@ -2,7 +2,7 @@
 
 
 ## Overview
-The module is a prototype to demonstrate an upgraded landing page of [NJSR Hub] (https://srhub.org/). The prototype allows users to search content based on their location or trending tags of the content. 
+The module is a prototype to demonstrate an upgraded landing page of [NJSR Hub](https://srhub.org/). The prototype allows users to search content based on their location or trending tags of the content. 
 
 ## How it works
 
