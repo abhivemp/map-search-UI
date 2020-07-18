@@ -1,4 +1,4 @@
-# CAB SRHUB Group 10 -- SRHUB Visual Search Module
+#  MapSearch (CSC 315)
 
 
 ## Overview
